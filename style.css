@@ -10,16 +10,12 @@ body {
     background: #ddd;
 
     display: grid;
-    grid-template-columns: 1fr 600px 1fr;
+    grid-template-columns: 600px 1fr;
     grid-template-rows: 100vh;
+    column-gap: 20px;
+    margin: 20px;
 
     .page {
-        background: #eee;
-
-        display: grid;
-        grid-template-columns: 1fr;
-        grid-template-rows: 1fr;
-
         font-family: "Nunito", sans-serif;
         font-optical-sizing: auto;
         font-weight: 650;
@@ -27,9 +23,13 @@ body {
         font-size: 1.1rem;
         color: #444;
 
-        grid-column: 2 / 3;
+        background: #eee;
 
-        margin: 20px 0px;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr;
+
+        grid-column: 1 / 2;
 
         &:focus-within {
             box-shadow: 0 0 0 2px #fff;
@@ -40,6 +40,19 @@ body {
             margin: 20px 0px 20px 20px;
             padding-right: 20px;
             overflow-y: scroll;
+        }
+    }
+
+    .settings {
+        font-family: "Nunito", sans-serif;
+        font-optical-sizing: auto;
+        font-weight: 650;
+        font-style: normal;
+        font-size: 1.1rem;
+        color: #444;
+        
+        .list {
+            margin-left: 20px;
         }
     }
 

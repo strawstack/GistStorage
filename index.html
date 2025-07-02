@@ -11,10 +11,21 @@
     <div class="page">
         <div contenteditable="true" class="editor"></div>
     </div>
+    <div class="settings">
+        <label for="current">Current Gist:</label>
+        <input type="text" id="current" name="current">
+        <details>
+            <summary>gists</summary>
+            <div class="list"></div>
+        </details>
+    </div>
     <script type="module" src="main.js"></script>
     <script type="module">
         import { main } from './main.js';
-        main();
+        main({
+            list: document.querySelector(".list"),
+            editor: document.querySelector(".editor")
+        });
     </script>
   </body>
 </html>
