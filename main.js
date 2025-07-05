@@ -8,10 +8,25 @@ function makeDiv(content, onClick) {
     return div;
 }
 
-export async function main({ list, editor }) {
+async function authCode(code) {
+    const token = await fetch("https://github.com/login/oauth/access_token", {
+        method: "post",
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            "client_id": "Iv23liSkOqFJRZyDYxDe",
+            "client_secret": "5457e56502d40041342a82a8634e5af77c08cbb7",
+            "code": code
+        })
+    });
+    return token;
+}
 
+async function authToken(token) {
     const octokit = new Octokit({
-        auth: 'TOKEN'
+        auth: token
     });
 
     const gists = await octokit.request('GET /gists', {
@@ -35,6 +50,18 @@ export async function main({ list, editor }) {
 
             break; // Only get first file in Gist
         }    
+    }
+}
+
+export async function main({ list, editor }) {
+
+    const params = new URLSearchParams(window.location.search);
+    const code = params.get('code');
+    if (code) {
+        console.log(`code: ${code}`);
+        const token = await authCode(code);
+        console.log(`token: ${token}`);
+        // authToken(token);
     }
 
     /* 
