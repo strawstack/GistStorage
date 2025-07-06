@@ -51,23 +51,70 @@ body {
         font-style: normal;
         font-size: 1.1rem;
         color: #444;
+
+        display: flex;
+        flex-direction: column;
+        row-gap: 20px;
         
-        .list {
-            margin-left: 20px;
+        .current-note-area {
+            input {
+                height: 30px;
+            }
         }
+
+        .new, .upload {
+            display: inline-block;
+        }
+
+        .list {
+            margin: 20px 0px 0px 20px;
+            display: flex;
+            flex-direction: column;
+            row-gap: 20px;
+
+            .note-item {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                border: 2px solid white;
+                padding: 5px;
+                border-radius: 8px;
+                .date, .status {
+                    color: #888;
+                }
+
+                &:hover {
+                    background: white;
+                    cursor: pointer;
+                }
+            }
+        }
+
+        .note-item-current {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            border: 2px solid white;
+            padding: 5px;
+            .title {
+
+            }
+            .date, .status {
+                color: #888;
+                display: flex;
+                align-items: center;
+            }
+        }
+
+        .filter-area {
+            margin: 10px 0px 0px 20px;
+            input { 
+                height: 30px;
+            }
+        }
+
         .connect-link {
             position: absolute;
             bottom: 20px;
             right: 20px;
-
-            border: 2px solid white;
-            border-radius: 4px;
-            padding: 5px;
-
-            &:hover {
-                background: white;
-                cursor: pointer;
-            }
         }
         .token-prompt {
             display: flex;
@@ -78,8 +125,8 @@ body {
             bottom: 0px;
             left: 0px;
             padding: 20px;
-            background: #eee;
-            border: 1px solid white;
+            background: #ccc;
+            border: 2px solid white;
             height: 400px;
 
             h1 {
@@ -87,41 +134,47 @@ body {
             }
 
             .token-image {
+                position: relative;
                 background-image: url("token-img.png");
                 width: 573px;
                 height: 168px;
                 border: 1px solid #ddd;
+                .overlay {
+                    position: absolute;
+                    top: 0px; 
+                    right: 0px;
+                    bottom: 0px;
+                    left: 0px;
+                    background: linear-gradient(rgba(255,255,255,0.7) 0%, rgba(0, 0, 0, 0) 50%, rgba(255,255,255,0.7) 100%);
+                }
             }
 
-            .close-btn {
+            .close {
                 position: absolute;
                 top: 20px;
                 right: 20px;
-
-                border: 2px solid white;
-                border-radius: 4px;
-                padding: 5px;
-
-                &:hover {
-                    background: white;
-                    cursor: pointer;
-                }
             }
 
             .token-row {
                 display: flex;
                 column-gap: 20px;
+            }
+        }
 
-                .submit-btn {
-                    border: 2px solid white;
-                    border-radius: 4px;
-                    padding: 5px;
+        input[type=text] {
+            outline: none;
+            background: #eee;
+            border: 2px solid white;
+        }
 
-                    &:hover {
-                        background: white;
-                        cursor: pointer;
-                    }
-                }
+        .btn {
+            border: 2px solid white;
+            border-radius: 8px;
+            padding: 5px;
+
+            &:hover {
+                background: white;
+                cursor: pointer;
             }
         }
     }

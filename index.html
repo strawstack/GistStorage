@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>GistStorage</title>
+    <title>Notes</title>
     <link rel="stylesheet" href="style.css">
     <link rel="icon" href="./favicon.ico">
   </head>
@@ -13,23 +13,51 @@
         <div contenteditable="true" class="editor"></div>
     </div>
     <div class="settings">
-        <label for="current">Current Gist:</label>
-        <input type="text" id="current" name="current">
+        <div class="current-note-area">
+          <div class="note-item-current">
+            <div class="title">
+              <input type="text" id="name" name="name" disabled="true" value="file_name.md">
+            </div>
+            <div class="date">14-Jul-2025</div>
+            <div class="status">local only</div>
+          </div>
+        </div>
+        <div class="upload-link-area">
+          <div class="new btn">New Note</div>
+          <div class="upload btn">Sync Note</div>
+        </div>
         <details>
-            <summary>gists</summary>
-            <div class="list"></div>
+            <summary>Notes</summary>
+            <div class="filter-area">
+              <label for="filter">Filter:</label>
+              <input type="text" id="filter" name="filter">
+            </div>
+              <div class="list">
+              <div class="note-item">
+                <div class="title">Name</div>
+                <div class="date">14-Jul-2025</div>
+                <div class="status">local only</div>
+              </div>
+              <div class="note-item">
+                <div class="title">Name</div>
+                <div class="date">14-Jul-2025</div>
+                <div class="status">local only</div>
+              </div>
+            </div>
         </details>
-        <div class="connect-link">Connect to Github</div>
+        <div class="connect-link btn">Connect to Github</div>
         
         <div class="token-prompt">
           <h1>Connect to Github</h1>
           <div>Enter a Github token in the box below with permission to access your Gists as shown. Create a "classic token" under Settings > Developer Settings > Personal Access Tokens.</div>
-          <div class="token-image"></div>
+          <div class="token-image">
+            <div class="overlay"></div>
+          </div>
           <div class="token-row">
             <input type="text">
-            <div class="submit-btn">Submit</div>
+            <div class="submit btn">Submit</div>
           </div>
-          <div class="close-btn">Close</div>
+          <div class="close btn">Close</div>
         </div>
     </div>
 
