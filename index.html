@@ -19,14 +19,27 @@
             <summary>gists</summary>
             <div class="list"></div>
         </details>
-        <a class="gist-link" href="https://github.com/login/oauth/authorize?client_id=Iv23liSkOqFJRZyDYxDe">Connect to Github</a>
+        <div class="connect-link">Connect to Github</div>
+        
+        <div class="token-prompt">
+          <h1>Connect to Github</h1>
+          <div>Enter a Github token in the box below with permission to access your Gists as shown. Create a "classic token" under Settings > Developer Settings > Personal Access Tokens.</div>
+          <div class="token-image"></div>
+          <div class="token-row">
+            <input type="text">
+            <div class="submit-btn">Submit</div>
+          </div>
+          <div class="close-btn">Close</div>
+        </div>
     </div>
+
     <script type="module" src="main.js"></script>
     <script type="module">
         import { main } from './main.js';
         main({
             list: document.querySelector(".list"),
-            editor: document.querySelector(".editor")
+            editor: document.querySelector(".editor"),
+            connectLink: document.querySelector(".connect-link")
         });
     </script>
   </body>

@@ -44,6 +44,7 @@ body {
     }
 
     .settings {
+        position: relative;
         font-family: "Nunito", sans-serif;
         font-optical-sizing: auto;
         font-weight: 650;
@@ -54,11 +55,74 @@ body {
         .list {
             margin-left: 20px;
         }
-        .gist-link {
+        .connect-link {
             position: absolute;
             bottom: 20px;
             right: 20px;
+
+            border: 2px solid white;
+            border-radius: 4px;
+            padding: 5px;
+
+            &:hover {
+                background: white;
+                cursor: pointer;
+            }
+        }
+        .token-prompt {
+            display: flex;
+            flex-direction: column;
+            row-gap: 20px;
+            position: absolute;
+            right: 0px;
+            bottom: 0px;
+            left: 0px;
+            padding: 20px;
+            background: #eee;
+            border: 1px solid white;
+            height: 400px;
+
+            h1 {
+                margin: 0px;
+            }
+
+            .token-image {
+                background-image: url("token-img.png");
+                width: 573px;
+                height: 168px;
+                border: 1px solid #ddd;
+            }
+
+            .close-btn {
+                position: absolute;
+                top: 20px;
+                right: 20px;
+
+                border: 2px solid white;
+                border-radius: 4px;
+                padding: 5px;
+
+                &:hover {
+                    background: white;
+                    cursor: pointer;
+                }
+            }
+
+            .token-row {
+                display: flex;
+                column-gap: 20px;
+
+                .submit-btn {
+                    border: 2px solid white;
+                    border-radius: 4px;
+                    padding: 5px;
+
+                    &:hover {
+                        background: white;
+                        cursor: pointer;
+                    }
+                }
+            }
         }
     }
-
 }

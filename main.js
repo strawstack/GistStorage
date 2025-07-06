@@ -8,23 +8,7 @@ function makeDiv(content, onClick) {
     return div;
 }
 
-async function authCode(code) {
-    const token = await fetch("https://github.com/login/oauth/access_token", {
-        method: "post",
-        headers: {
-            'Accept': 'application/json',
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-            "client_id": "Iv23liSkOqFJRZyDYxDe",
-            "client_secret": "5457e56502d40041342a82a8634e5af77c08cbb7",
-            "code": code
-        })
-    });
-    return token;
-}
-
-async function authToken(token) {
+async function getGists(token) {
     const octokit = new Octokit({
         auth: token
     });
@@ -53,16 +37,17 @@ async function authToken(token) {
     }
 }
 
-export async function main({ list, editor }) {
+export async function main({ list, editor, connectLink }) {
 
-    const params = new URLSearchParams(window.location.search);
-    const code = params.get('code');
-    if (code) {
-        console.log(`code: ${code}`);
-        const token = await authCode(code);
-        console.log(`token: ${token}`);
-        // authToken(token);
-    }
+    const state = {
+        token: null
+    };
+
+    connectLink.addEventListener("click", e => {
+        e.preventDefault();
+        
+
+    });
 
     /* 
     // Create Gist 
