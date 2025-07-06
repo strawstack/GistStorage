@@ -66,6 +66,10 @@ body {
             display: inline-block;
         }
 
+        details {
+            cursor: pointer;
+        }
+
         .list {
             margin: 20px 0px 0px 20px;
             display: flex;
@@ -75,6 +79,7 @@ body {
             .note-item {
                 display: grid;
                 grid-template-columns: repeat(3, 1fr);
+                column-gap: 20px;
                 border: 2px solid white;
                 padding: 5px;
                 border-radius: 8px;
@@ -92,6 +97,7 @@ body {
         .note-item-current {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
+            column-gap: 20px;
             border: 2px solid white;
             padding: 5px;
             .title {
@@ -165,6 +171,13 @@ body {
             outline: none;
             background: #eee;
             border: 2px solid white;
+            
+            font-family: "Nunito", sans-serif;
+            font-optical-sizing: auto;
+            font-weight: 650;
+            font-style: normal;
+            font-size: 1.1rem;
+            color: #444;
         }
 
         .btn {
